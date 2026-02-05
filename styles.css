@@ -29,8 +29,11 @@ nav {
     padding: 1rem 2rem;
 }
 
-.logo img {
-    height: 28px;
+.logo-icon {
+    height: 34px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.35));
 }
 
 .hero {
