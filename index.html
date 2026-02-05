@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLKAY Studios – Creative Hub in Polokwane</title>
+
+    <meta name="description" content="PLKAY Studios is a creative studio in Polokwane offering music production, film, photography, and creative development." />
+
+    <!-- Google Font for cleaner, modern feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #d4af37;
+            --offwhite: #eaeaea;
+            --black: #0b0b0b;
+            --dark-gray: #151515;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--offwhite);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 11, 11, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--offwhite);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at top, #1a1a1a, #000);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 6vw, 4rem);
+            letter-spacing: 6px;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .mission {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.9rem 2.4rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-cta:hover { background: var(--gold); color: #000; }
+
+        /* SECTIONS */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+
+        /* ABOUT */
+        .about-box {
+            max-width: 800px;
+            font-size: 1.05rem;
+        }
+
+        .about-box p { margin-bottom: 1.5rem; }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            padding: 2.2rem;
+            background: #111;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .service-card h3 {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul { list-style: none; }
+
+        .service-card li {
+            margin-bottom: 0.6rem;
+            opacity: 0.9;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .gallery div {
+            aspect-ratio: 1;
+            background: #111;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            opacity: 0.6;
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        label { font-size: 0.85rem; opacity: 0.8; }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.7rem;
+            background: #111;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--offwhite);
+            margin-bottom: 1.2rem;
+            font-family: inherit;
+        }
+
+        .service-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            color: var(--gold);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+        }
+
+        .service-cta:hover { opacity: 0.8; }
+
+        button {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            cursor: pointer;
+        }
+
+        button:hover { background: var(--gold); color: #000; }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 768px) {
+    /* MOBILE REFINEMENTS */
+
+    body { font-size: 0.95rem; }
+
+    nav { position: sticky; }
+
+    .nav-container { padding: 1rem 1.5rem; }
+
+    .nav-links { display: none; }
+
+    .hero { padding: 6rem 1.5rem 3rem; }
+
+    .hero h1 { font-size: 2.2rem; letter-spacing: 4px; }
+
+    .hero .mission { font-size: 1.15rem; }
+
+    .hero-cta { width: 100%; max-width: 320px; }
+
+    section { padding: 4rem 1.5rem; }
+
+    section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+
+    .services-grid { gap: 1.8rem; }
+
+    .service-card { padding: 1.8rem; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+    button { width: 100%; padding: 0.9rem; }
+}
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+    <!-- PLKAY official icon-only logo -->
+    <img src="plkay-icon.png" alt="PLKAY icon" class="logo-icon" />
+</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="home" class="hero">
+    <div>
+        <h1>PLKAY STUDIOS</h1>
+        <p class="tagline">Born in the Hood. Built for the World.</p>
+        <p class="mission">A creative studio for music, film, and visual storytelling.</p>
+        <p class="tagline">Born in the hood. Built for the world.</p>
+        <div class="badge">Launching Soon · Polokwane</div>
+        <a href="#waitlist" class="hero-cta">Get notified when sessions open</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About</h2>
+    <div class="about-box">
+        <p><strong>PLKAY Studios</strong> is a Polokwane-based creative studio providing professional production spaces and creative support for emerging artists and storytellers.</p>
+        <p>We focus on clean execution, access to quality tools, and building real creative output — not noise.</p>
+        <p>The studio exists to serve musicians, filmmakers, and creators who want their work to meet professional standards without leaving their city.</p>
+    </div>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Music Production</h3>
+            <ul>
+                <li>Recording</li>
+                <li>Mixing & Mastering</li>
+                <li>Beat Production</li>
+                <li>Podcasting</li>
+            </ul>
+            <a href="#booking" class="service-cta">Request Session</a>
+        </div>
+        <div class="service-card">
+            <h3>Film & Visuals</h3>
+            <ul>
+                <li>Music Videos</li>
+                <li>Photography</li>
+                <li>Content Production</li>
+                <li>Event Coverage</li>
+            </ul>
+            <a href="#booking" class="service-cta">Request Session</a>
+        </div>
+        <div class="service-card">
+            <h3>Creative Development</h3>
+            <ul>
+                <li>Workshops</li>
+                <li>Editing Training</li>
+                <li>Portfolio Support</li>
+                <li>Mentorship</li>
+            </ul>
+            <a href="#booking" class="service-cta">Join Program</a>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING (PHASE 2 – HIDDEN)
+<section id="booking" style="display:none;"></section>
+
+<section id="waitlist">
+    <h2>Stay in the Loop</h2>
+    <div class="about-box">
+        <p>PLKAY Studios is preparing its launch calendar. Join the waitlist to be notified when studio sessions officially open.</p>
+    </div>
+    <div style="max-width:600px; margin-top:2.5rem;">
+        <form onsubmit="event.preventDefault(); alert('You’re on the list. We’ll be in touch.'); this.reset();">
+            <label>Email address</label>
+            <input type="email" required placeholder="you@example.com" />
+            <button type="submit">Join the Waitlist</button>
+        </form>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <div>Studio</div>
+        <div>Film</div>
+        <div>Photo</div>
+        <div>Audio</div>
+        <div>Creative</div>
+        <div>Work</div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+        <div>
+            <h3>Message</h3>
+            <form onsubmit="event.preventDefault(); alert('Message received. We will respond soon.'); this.reset();">
+                <label>Name</label>
+                <input type="text" required />
+                <label>Email</label>
+                <input type="email" required />
+                <label>Message</label>
+                <textarea rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div>
+            <h3>Details</h3>
+            <p>Polokwane, Limpopo</p>
+            <p>076 902 3132</p>
+            <p>kamo.khafs@gmail.com</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 PLKAY Studios</p>
+</footer>
+
+</body>
+</html>
